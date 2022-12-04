@@ -50,3 +50,19 @@ export const convertToString = (inputNumber) => {
 const getRemainder = (inputNumber, smaller) => {
   return inputNumber - Math.floor(inputNumber / smaller) * smaller
 }
+
+export const converterFunc = (number) => {
+  let resultString = ''
+  const absolute = parseInt(Math.abs(number), 10)
+  if (parseInt(number, 10) === 0) {
+    return 'zero'
+  } else {
+    resultString = convertToString(absolute)
+  }
+
+  if (number < 0) {
+    return `minus ${resultString}`
+  } else {
+    return resultString
+  }
+}

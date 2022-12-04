@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { convertToString } from '../utils/converterFunc'
+import { converterFunc } from '../utils/converterFunc'
 
 function Converter() {
   const [number, setNumber] = useState('')
@@ -36,7 +36,7 @@ function Converter() {
         </form>
         <div className='mt-5 display-6 d-flex flex-column align-items-center '>
           Result
-          <div className='text-warning'>{convertToString(number)}</div>
+          <div className='text-warning'>{converterFunc(number)}</div>
         </div>
       </div>
     </div>
