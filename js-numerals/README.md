@@ -27,5 +27,6 @@ Note: Numbers greater than 100 may include the word "and" between the hundreds f
     npm test
 </pre>
 
-# Deployed to Vercel:
+# Deployed to Vercel
+https://arabic-number-conversion-tool.vercel.app/
 
