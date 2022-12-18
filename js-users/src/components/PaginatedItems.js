@@ -31,7 +31,6 @@ function PaginatedItems({ itemsPerPage }) {
     setPageCount(Math.ceil(allUsersCopy.length / itemsPerPage))
   }, [itemOffset, itemsPerPage, allUsers])
 
-  // Invoke when user click to request another page.
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % allUsers.length
     console.log(
@@ -42,19 +41,22 @@ function PaginatedItems({ itemsPerPage }) {
 
   return (
     <>
-      <table className='table'>
+      <table className='table table-striped'>
         <thead>
           <tr>
             <th scope='col'>#</th>
             <th scope='col'>First</th>
             <th scope='col'>Last</th>
-            <th scope='col'>Handle</th>
+            <th scope='col'>Status</th>
+            <th scope='col'>Created at</th>
+            <th scope='col'>Updated at</th>
           </tr>
         </thead>
         <tbody>
           <UsersList currentUsers={currentUsers} />
         </tbody>
       </table>
+
       <ReactPaginate
         nextLabel='&raquo;'
         onPageChange={handlePageClick}

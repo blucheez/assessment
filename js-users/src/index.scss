@@ -1,5 +1,22 @@
+/* Color Theme Swatches in Hex */
+$UIdarkblue: #010326;
+$UIdarkgrey: #031626;
+$UImidgrey: #566573;
+$UIlight: #f2f2f2;
+
 // Override default variables before the import
-$body-bg: rgb(211, 203, 203);
+$body-bg: $UIdarkblue;
+$body-color: $UIlight;
+
+$table-accent-bg: $UIdarkgrey;
+
+$pagination-color: $UIlight;
+$pagination-bg: $UIdarkblue;
+$pagination-active-border-color: $UIlight;
+$pagination-active-bg: $UImidgrey;
+$pagination-disabled-color: $UImidgrey;
+$pagination-disabled-bg: $UIdarkblue;
+$pagination-focus-box-shadow: 0;
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
