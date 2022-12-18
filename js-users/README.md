@@ -1,18 +1,5 @@
 # JavaScript/Front-end Developer - User List
 
-## Instructions
-
-- Fork this project.
-- Commit the important milestones and not just the final result.
-- Go with the exercises step by step
-- Use those tools you can work the the quickest, the more effective with.
-- Write a code what you don’t mind to present and you’re not lost in it.
-- If you face a barrier or don’t understand something – try to find the right
-	solution – be creative and independent.
-- If you really get stuck ask for help, but in this case define your question
-	thoroughly/exactly.
-- Cover your code with test cases wherever you can.
-
 ## MVC Application
 
 **Basic information**
