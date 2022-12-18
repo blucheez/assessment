@@ -41,7 +41,7 @@ function PaginatedItems({ itemsPerPage }) {
 
   return (
     <>
-      <table className='table table-striped'>
+      <table className='table mb-4'>
         <thead>
           <tr>
             <th scope='col'>#</th>
@@ -50,6 +50,7 @@ function PaginatedItems({ itemsPerPage }) {
             <th scope='col'>Status</th>
             <th scope='col'>Created at</th>
             <th scope='col'>Updated at</th>
+            <th scope='col'>Actions</th>
           </tr>
         </thead>
         <tbody>

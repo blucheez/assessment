@@ -6,6 +6,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Main />} />
+        <Route path='/new' element={<Main />} />
+        <Route path='/edit/:id' element={<Main />} />
       </Routes>
     </BrowserRouter>
   )
