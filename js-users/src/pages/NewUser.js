@@ -44,7 +44,7 @@ function NewUser() {
 
   return (
     <div className='container d-flex flex-column align-items-center'>
-      <h1 className='my-4'>Add New User</h1>
+      <h2 className='my-4'>Add New User</h2>
       <form
         className={`text-center needs-validation ${
           wasValidated && 'was-validated'
@@ -92,7 +92,7 @@ function NewUser() {
             name='status'
             onChange={handleOnChange}
           >
-            <option disabled hidden value=''>
+            <option disabled value=''>
               Status
             </option>
             <option value='active'>Active</option>
@@ -104,12 +104,12 @@ function NewUser() {
         </div>
 
         <div className='mt-5'>
-          <button className='btn btn-primary' type='submit'>
+          <button className='add-btn mb-4' type='submit'>
             Add
           </button>
         </div>
       </form>
-      <Link to='/' className='btn btn-secondary mt-4'>
+      <Link to='/' className='home-link'>
         Home
       </Link>
     </div>
