@@ -7,7 +7,7 @@ function UsersList({ currentUsers }) {
     <>
       {currentUsers &&
         currentUsers.map((user) => {
-          return <UserData user={user} />
+          return <UserData user={user} key={user.id}/>
         })}
     </>
   )

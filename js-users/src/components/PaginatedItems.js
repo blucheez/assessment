@@ -17,7 +17,7 @@ function PaginatedItems({ itemsPerPage }) {
         const fetchData = await response.json()
         setAllUsers(fetchData)
       } catch (error) {
-        console.log(error.message)
+        throw new Error(error)
       }
     }
     getData()
@@ -25,7 +25,6 @@ function PaginatedItems({ itemsPerPage }) {
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`)
     const allUsersCopy = [...allUsers]
     setCurrentUsers(allUsersCopy.slice(itemOffset, endOffset))
     setPageCount(Math.ceil(allUsersCopy.length / itemsPerPage))
@@ -33,9 +32,6 @@ function PaginatedItems({ itemsPerPage }) {
 
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % allUsers.length
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    )
     setItemOffset(newOffset)
   }
 
@@ -44,12 +40,9 @@ function PaginatedItems({ itemsPerPage }) {
       <table className='table mb-4'>
         <thead>
           <tr>
-            <th scope='col'>#</th>
             <th scope='col'>First</th>
             <th scope='col'>Last</th>
-            <th scope='col'>Status</th>
             <th scope='col'>Created at</th>
-            <th scope='col'>Updated at</th>
             <th scope='col'>Actions</th>
           </tr>
         </thead>

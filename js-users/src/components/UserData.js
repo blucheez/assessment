@@ -12,17 +12,12 @@ function UserData({ user }) {
   return (
     <tr
       key={user.id}
-      className={
-        isLocked && `text-decoration-line-through text-warning`
-      }
+      className={isLocked ? 'text-decoration-line-through text-warning' : ''}
     >
-      <td>{user.id}</td>
-      <td>{user.first_name}</td>
-      <td>{user.last_name}</td>
-      <td>{user.status}</td>
-      <td>{user.created_at}</td>
-      <td>{user.updated_at}</td>
-      <td>
+      <td className='align-middle'>{user.first_name}</td>
+      <td className='align-middle'>{user.last_name}</td>
+      <td className='align-middle'>{user.created_at}</td>
+      <td className='align-middle'>
         <button className='btn btn-primary'>Edit</button>
         <button className='btn btn-primary'>Lock</button>
       </td>

@@ -4,9 +4,16 @@ $UIdarkgrey: #031626;
 $UImidgrey: #566573;
 $UIlight: #f2f2f2;
 
+
+nav {
+    height: 100px;
+}
+
 // Override default variables before the import
 $body-bg: $UIdarkblue;
 $body-color: $UIlight;
+
+$warning:$UImidgrey;
 
 /* $table-accent-bg: $UIdarkgrey; */
 
