@@ -11,7 +11,6 @@ function UserData({ user }) {
     minute: '2-digit',
     second: '2-digit',
   })
-  console.log(localDate)
 
   useEffect(() => {
     if (user.status === 'locked') {
@@ -28,7 +27,6 @@ function UserData({ user }) {
         } else {
           editedStatus = 'locked'
         }
-        console.log(editedStatus)
 
         try {
           await fetch(

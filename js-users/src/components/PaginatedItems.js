@@ -37,7 +37,7 @@ function PaginatedItems({ itemsPerPage }) {
 
   return (
     <>
-      <table className='table mb-4'>
+      <table className='table my-4'>
         <thead>
           <tr>
             <th scope='col'>First</th>
