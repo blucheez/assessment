@@ -1,33 +1,37 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
-function NewUser() {
-  const initialValues = {
-    first_name: '',
-    last_name: '',
-    status: '',
-  }
+function EditUser() {
+  const location = useLocation()
 
-  const [formData, setFormData] = useState(initialValues)
+  const [formData, setFormData] = useState(location.state.user)
   const [errorMessages, setErrorMessages] = useState({})
+  const [successMessage, setSuccessMessage] = useState({})
   const [wasValidated, setWasValidated] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
       const response = await fetch(
-        'https://assessment-users-backend.herokuapp.com/users',
+        `https://assessment-users-backend.herokuapp.com/users/${location.state.user.id}`,
         {
-          method: 'POST',
+          method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify({
+            first_name: formData.first_name,
+            last_name: formData.last_name,
+          }),
         }
       )
+      console.log(response)
       if (response.status === 422) {
         const res = await response.json()
         setErrorMessages(res)
+        setWasValidated(true)
+      } else if (response.ok) {
+        setSuccessMessage('User edit was successful')
         setWasValidated(true)
       }
     } catch (error) {
@@ -44,15 +48,16 @@ function NewUser() {
 
   return (
     <div className='container d-flex flex-column align-items-center'>
-      <h2 className='my-4'>Add New User</h2>
+      <h2 className='my-4'>Edit User</h2>
       <form
-        className={`needs-validation ${
-          wasValidated && 'was-validated'
-        }`}
+        className={`needs-validation ${wasValidated && 'was-validated'}`}
         noValidate
         onSubmit={handleSubmit}
       >
         <div className='mb-3'>
+          <label htmlFor='first_name' className='form-label'>
+            First name
+          </label>
           <input
             type='text'
             className='form-control'
@@ -60,6 +65,7 @@ function NewUser() {
             name='first_name'
             placeholder='First name'
             onChange={handleOnChange}
+            value={formData.first_name}
             required
           />
           <div className='invalid-feedback'>
@@ -68,6 +74,9 @@ function NewUser() {
         </div>
 
         <div className='mb-3'>
+          <label htmlFor='last_name' className='form-label'>
+            Last name
+          </label>
           <input
             type='text'
             className='form-control'
@@ -75,6 +84,7 @@ function NewUser() {
             name='last_name'
             placeholder='Last name'
             onChange={handleOnChange}
+            value={formData.last_name}
             required
           />
           <div className='invalid-feedback'>
@@ -82,37 +92,19 @@ function NewUser() {
           </div>
         </div>
 
-        <div className='mb-3'>
-          <select
-            className='form-select'
-            id='validationCustom04'
-            placeholder='asd'
-            required
-            defaultValue=''
-            name='status'
-            onChange={handleOnChange}
-          >
-            <option disabled value=''>
-              Status
-            </option>
-            <option value='active'>Active</option>
-            <option value='locked'>Locked</option>
-          </select>
-          <div className='invalid-feedback'>
-            {errorMessages ? errorMessages.status : ''}
+        <div className='mt-5 text-center'>
+          <button className='add-btn' type='submit'>
+            Edit
+          </button>
+          <div className='valid-feedback mt-4 fs-6'>
+            <strong>{successMessage.length ? successMessage : ''}</strong>
           </div>
         </div>
-
-        <div className='mt-5 text-center'>
-          <button className='add-btn mb-4' type='submit'>
-            Add
-          </button>
-        </div>
       </form>
-      <Link to='/' className='home-link'>
+      <Link to='/' className='home-link mt-4'>
         Home
       </Link>
     </div>
   )
 }
-export default NewUser
+export default EditUser
