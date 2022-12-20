@@ -1,5 +1,15 @@
 # JavaScript/Front-end Developer - User List
 
+## To run the app:
+<pre>
+    npm i
+    npm start
+</pre>
+
+## Deployed to Vercel
+https://js-users.vercel.app/
+
+
 ## MVC Application
 
 **Basic information**
@@ -50,3 +60,4 @@ so we don’t have an exact design for the user list.
 
 Make it nice, visually pleasing. You can use external CSS libraries or
 frameworks. If you have time work on the mobile version so it would be usable.
+
