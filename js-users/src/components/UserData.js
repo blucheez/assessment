@@ -58,8 +58,12 @@ function UserData({ user }) {
       <td className='align-middle'>{user.last_name}</td>
       <td className='align-middle'>{user.created_at}</td>
       <td className='align-middle'>
-        <Link to={`/edit/${user.id}`} state={{ user }}>
-          <button className='btn btn-warning'>
+        <Link
+          to={`/edit/${user.id}`}
+          state={{ user }}
+          className={isLocked ? 'disabled-link' : ''}
+        >
+          <button className={`btn btn-warning ${isLocked ? 'disabled' : ''}`}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='16'

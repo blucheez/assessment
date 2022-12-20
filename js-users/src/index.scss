@@ -46,6 +46,10 @@ form {
   color: $UIlight;
 }
 
+.disabled-link {
+  pointer-events: none;
+}
+
 input[type='text'] {
   border: 0;
   border-bottom: 1px solid $UImidgrey;
