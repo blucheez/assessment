@@ -25,13 +25,12 @@ function EditUser() {
           }),
         }
       )
-      console.log(response)
       if (response.status === 422) {
         const res = await response.json()
         setErrorMessages(res)
         setWasValidated(true)
       } else if (response.ok) {
-        setSuccessMessage('User edit was successful')
+        setSuccessMessage('Edit was successful')
         setWasValidated(true)
       }
     } catch (error) {

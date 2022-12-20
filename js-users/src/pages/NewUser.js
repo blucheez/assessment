@@ -10,6 +10,7 @@ function NewUser() {
 
   const [formData, setFormData] = useState(initialValues)
   const [errorMessages, setErrorMessages] = useState({})
+  const [successMessage, setSuccessMessage] = useState({})
   const [wasValidated, setWasValidated] = useState(false)
 
   const handleSubmit = async (e) => {
@@ -29,6 +30,12 @@ function NewUser() {
         const res = await response.json()
         setErrorMessages(res)
         setWasValidated(true)
+      } else if (response.status === 201) {
+        const res = await response.json()
+        setSuccessMessage(
+          `You created the following user: ${res.first_name} ${res.last_name}`
+        )
+        setWasValidated(true)
       }
     } catch (error) {
       throw new Error(error)
@@ -46,9 +53,7 @@ function NewUser() {
     <div className='container d-flex flex-column align-items-center'>
       <h2 className='my-4'>Add New User</h2>
       <form
-        className={`needs-validation ${
-          wasValidated && 'was-validated'
-        }`}
+        className={`needs-validation ${wasValidated && 'was-validated'}`}
         noValidate
         onSubmit={handleSubmit}
       >
@@ -107,9 +112,12 @@ function NewUser() {
           <button className='add-btn mb-4' type='submit'>
             Add
           </button>
+          <div className='valid-feedback mt-4 fs-6 fw-bold'>
+            {successMessage.length ? successMessage : ''}
+          </div>
         </div>
       </form>
-      <Link to='/' className='home-link'>
+      <Link to='/' className='home-link mt-4'>
         Home
       </Link>
     </div>

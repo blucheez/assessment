@@ -74,8 +74,8 @@ function UserData({ user }) {
           <button className={`btn btn-warning ${isLocked ? 'disabled' : ''}`}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
-              width='16'
-              height='16'
+              width='18'
+              height='18'
               fill='currentColor'
               className='bi bi-pencil'
               viewBox='0 0 16 16'
@@ -91,8 +91,8 @@ function UserData({ user }) {
           {!isLocked ? (
             <svg
               xmlns='http://www.w3.org/2000/svg'
-              width='16'
-              height='16'
+              width='18'
+              height='18'
               fill='currentColor'
               className='bi bi-lock'
               viewBox='0 0 16 16'
@@ -102,8 +102,8 @@ function UserData({ user }) {
           ) : (
             <svg
               xmlns='http://www.w3.org/2000/svg'
-              width='16'
-              height='16'
+              width='18'
+              height='18'
               fill='currentColor'
               className='bi bi-unlock'
               viewBox='0 0 16 16'

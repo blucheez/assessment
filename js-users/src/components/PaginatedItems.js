@@ -40,8 +40,8 @@ function PaginatedItems({ itemsPerPage }) {
       <table className='table my-4'>
         <thead>
           <tr>
-            <th scope='col'>First</th>
-            <th scope='col'>Last</th>
+            <th scope='col'>First name</th>
+            <th scope='col'>Last name</th>
             <th scope='col'>Created at</th>
             <th scope='col'>Actions</th>
           </tr>
