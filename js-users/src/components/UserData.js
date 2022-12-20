@@ -5,6 +5,14 @@ function UserData({ user }) {
   const [isLocked, setIsLocked] = useState(false)
   const [statusChanged, setStatusChanged] = useState(false)
 
+  const date = new Date(user.created_at)
+  const localDate = date.toLocaleDateString('hu-HU', {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  })
+  console.log(localDate)
+
   useEffect(() => {
     if (user.status === 'locked') {
       setIsLocked(true)
@@ -52,11 +60,13 @@ function UserData({ user }) {
   return (
     <tr
       key={user.id}
-      className={isLocked ? 'text-decoration-line-through text-warning' : ''}
+      className={`${
+        isLocked ? 'text-decoration-line-through text-warning' : ''
+      }`}
     >
-      <td className='align-middle'>{user.first_name}</td>
-      <td className='align-middle'>{user.last_name}</td>
-      <td className='align-middle'>{user.created_at}</td>
+      <td className='align-middle text-break'>{user.first_name}</td>
+      <td className='align-middle text-break'>{user.last_name}</td>
+      <td className='align-middle'>{localDate}</td>
       <td className='align-middle'>
         <Link
           to={`/edit/${user.id}`}
@@ -76,7 +86,10 @@ function UserData({ user }) {
             </svg>
           </button>
         </Link>
-        <button className='btn btn-warning ms-2' onClick={handleClick}>
+        <button
+          className='btn btn-warning ms-0 ms-lg-2 mt-2 mt-lg-0'
+          onClick={handleClick}
+        >
           {!isLocked ? (
             <svg
               xmlns='http://www.w3.org/2000/svg'

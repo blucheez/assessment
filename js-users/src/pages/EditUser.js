@@ -96,8 +96,8 @@ function EditUser() {
           <button className='add-btn' type='submit'>
             Edit
           </button>
-          <div className='valid-feedback mt-4 fs-6'>
-            <strong>{successMessage.length ? successMessage : ''}</strong>
+          <div className='valid-feedback mt-4 fs-6 fw-bold'>
+            {successMessage.length ? successMessage : ''}
           </div>
         </div>
       </form>
